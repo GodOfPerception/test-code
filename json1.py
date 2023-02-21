@@ -1,4 +1,4 @@
-Read the json and print out the hobbies
+"""Read the json and print out the hobbies
 {
 "name": "John",
 "age": 50,
@@ -7,10 +7,10 @@ Read the json and print out the hobbies
 "hobbies": ["traveling", "photography"]
 }
 
-### #code
+### #code"""
 
 import json
-#problem 1
+ 
 j_data = {
 "name": "John",
 "age": 50,
@@ -22,4 +22,4 @@ jj_data= json.dumps(j_data)
 data = json.loads(jj_data)
 print("solution 1")
 for hobby in data["hobbies"]:
-print(hobby)
+  print(hobby)
