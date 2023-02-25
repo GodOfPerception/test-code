@@ -22,7 +22,7 @@ def jokemech():
     print("Wanna hear a joke? Type y/n")
 
     r = input()
-    if r == "y" or r=="Y:
+    if r == "y" or r=="Y":
         print(jokes())
         jokemech()
     elif r == "n" or r=="N":
