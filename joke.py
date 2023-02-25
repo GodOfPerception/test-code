@@ -19,16 +19,16 @@ def jokes():
     return m["setup"], m["punchline"]
 
 def jokemech():
-    print("Wanna hear a joke? Type Y/N")
+    print("Wanna hear a joke? Type y/n")
 
-    r = input().lower()
-    if r == "y":
+    r = input()
+    if r == "y" or r=="Y:
         print(jokes())
         jokemech()
-    elif r == "n":
+    elif r == "n" or r=="N":
         print("Thanks for your time!")
     else:
-        print("Could not understand you. Please type Y or N.")
+        print("Could not understand you. Please type y or n.")
         jokemech()
 
 jokemech()
