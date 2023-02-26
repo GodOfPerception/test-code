@@ -53,7 +53,6 @@ else:
 elapsed_minutes = elapsed_seconds // 60
 
 result_degrees = (sun_longitude_degrees + elapsed_minutes) % 360
-result_degrees = (sun_longitude_degrees + elapsed_minutes) % 360
 print(result_degrees)
 
 
