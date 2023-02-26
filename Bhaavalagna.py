@@ -46,7 +46,7 @@ time_s = 0
 total_seci = time_h * 3600 + time_m * 60 + time_s
 
 if total_seci> total_sunrise:
-    elapsed_seconds = totail_seci - total_sunrise
+    elapsed_seconds = total_seci - total_sunrise
 
 
 elapsed_minutes = elapsed_seconds // 60
