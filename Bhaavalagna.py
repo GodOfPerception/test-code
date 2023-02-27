@@ -24,6 +24,20 @@ data = {
     'vedic_sunset': '18:26:9'
 }
 
+degree_ranges = {
+    range(0, 30): 'Aries',
+    range(30, 60): 'Gemini',
+    range(60, 120): 'Leo',
+    range(120, 150): 'Virgo',
+    range(150, 180): 'Libra',
+    range(180, 210): 'Scorpio',
+    range(210, 240): 'Sagittarius',
+    range(240, 270): 'Capricorn',
+    range(270, 300): 'Aquarius',
+    range(300, 330): 'Pisces',
+    range(330, 360): 'Aries'
+}
+
 jdatai = json.dumps(data)
 jdataii = json.loads(jdatai)
 
@@ -45,33 +59,17 @@ if time_str.endswith('PM'):
 time_s = 0
 total_seci = time_h * 3600 + time_m * 60 + time_s
 
-if total_seci> total_sunrise:
-    elapsed_seconds = total_seci - total_sunrise
+if total_seci > total_sunrise:
+    elapsed_second = total_seci - total_sunrise
+else:
+    elapsed_second = total_sunrise-total_seci
 
-
-elapsed_minutes = elapsed_seconds // 60
+elapsed_minutes = elapsed_second // 60
 
 result_degrees = (sun_longitude_degrees + elapsed_minutes) % 360
 print(result_degrees)
 
-
-
-
-if(result_degrees>0 and result_degrees<=30):
-    print("Aries")
-elif(result_degrees>30 and result_degrees<=60):
-    print("Gemini")
-elif(result_degrees>60 and result_degrees<=120):
-    print("leo")
-elif(result_degrees>120 and result_degrees<=150):
-    print("virgo")
-elif(result_degrees>150 and result_degrees<=180):
-    print("Libra")
-elif(result_degrees>180 and result_degrees<=210):
-    print("scorpioo")
-elif(result_degrees>210 and result_degrees<=240):
-    print("Sagittarius")
-elif(result_degrees>240 and result_degrees<=270):
-    print("capricious")
-elif(result_degrees>270 and result_degrees<=300):
-    print("Aquarius")
+for degree_range, zodiac_sign in degree_ranges.items():
+    if result_degrees in degree_range:
+        print(zodiac_sign)
+        break
