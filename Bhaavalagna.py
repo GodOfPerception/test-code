@@ -8,8 +8,8 @@ The following method may be used for computing bhavalagna.
 (1) Find the time of sunrise and sun's longitude at sunrise. 
 (2) Find the difference between the birthtime (or the event time) and the sunrise time found in (1) above. Convert the difference into minutes. The result is the advancement of bhavalagna since sunrise, in degrees.
  (3) Add Sun's longitude at sunrise (in degrees) to the above number. Expunge multiples of 360° and reduce the number to the range 0°–360°
- 
- 
+
+
  #code"""
 """Astrology has one lagna called Bhav Lagna.
 Its calculated like this
@@ -93,12 +93,12 @@ degrees_to_signs = {
 }
 
 for degree_range, sign in degrees_to_signs.items():
-    if s in degree_range:
+    if int(s) in degree_range:
         print(sign)
         break
 
 print("BL is",int(su%30),"°",sun_longitude_degree,"in")
 for degree_range, sign in degrees_to_signs.items():
-    if su in degree_range:
+    if int(su) in degree_range:
         print(sign)
         break
