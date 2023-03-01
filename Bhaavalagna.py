@@ -56,9 +56,9 @@ else:
 
 elapsed_minutes = (elapsed_second // 60)/2
 sun_longitude_sunrise=270+sun_longitude_angle+elapsed_minutes
-s=sun_longitude_sunrise
+s=sun_longitude_sunrise-360
 
-print("HL is",int(sun_longitude_sunrise%30),"°",sun_longitude_degree,"in")
+print("HL is",int(s%30),"°",sun_longitude_degree,"in")
 degree_ranges = {
     0: 'Aries',
     1: 'Taurus',
