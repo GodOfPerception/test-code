@@ -1,11 +1,11 @@
 """Astrology has one lagna called Bhav Lagna.
 Its calculated like this
 
-5.2 Bhaava Lagna Bhaava lagna is at the position of Sun at the time of sunrise. It moves at the rate of one rasi per 2 hours. In the rest of this book, bhava lagna will be denoted by BL. 10 
-If sunrise takes place at 6:00 am and Sun is at 6s 4°47' then, horalagna is at 6s 4°47' at 6:00 am, at 6s 19°47' at 7:00 am, at 7s 4°47' at 8:00 am, 8s 4°47' at 10:00 am and so on. Bhavalagna moves at the rate of 1° per 4 minutes (i.e., 15° per hour). 
+5.2 Bhaava Lagna Bhaava lagna is at the position of Sun at the time of sunrise. It moves at the rate of one rasi per 2 hours. In the rest of this book, bhava lagna will be denoted by BL. 10
+If sunrise takes place at 6:00 am and Sun is at 6s 4°47' then, horalagna is at 6s 4°47' at 6:00 am, at 6s 19°47' at 7:00 am, at 7s 4°47' at 8:00 am, 8s 4°47' at 10:00 am and so on. Bhavalagna moves at the rate of 1° per 4 minutes (i.e., 15° per hour).
 
-The following method may be used for computing bhavalagna. 
-(1) Find the time of sunrise and sun's longitude at sunrise. 
+The following method may be used for computing bhavalagna.
+(1) Find the time of sunrise and sun's longitude at sunrise.
 (2) Find the difference between the birthtime (or the event time) and the sunrise time found in (1) above. Convert the difference into minutes. The result is the advancement of bhavalagna since sunrise, in degrees.
  (3) Add Sun's longitude at sunrise (in degrees) to the above number. Expunge multiples of 360° and reduce the number to the range 0°–360°
 
@@ -71,8 +71,15 @@ elapsed_minutes = (elapsed_second // 60)/2
 elapsed_minutesu= (elapsed_second//60)
 sun_longitude_sunriseu=270+sun_longitude_angle+elapsed_minutesu
 sun_longitude_sunrise=270+sun_longitude_angle+elapsed_minutes
-s=sun_longitude_sunrise-360
-su=sun_longitude_sunriseu-360-360
+
+if(sun_longitude_sunrise>360):
+    s=sun_longitude_sunrise-360
+else:
+    s=sun_longitude_sunrise
+if(sun_longitude_sunriseu>730):
+    su=sun_longitude_sunriseu-360-360
+else:
+    su=sun_longitude_sunriseu
 
 
 print("HL is",int(s%30),"°",sun_longitude_degree,"in")
@@ -94,11 +101,15 @@ degrees_to_signs = {
 
 for degree_range, sign in degrees_to_signs.items():
     if int(s) in degree_range:
+        if(s>360):
+            s=s//2
         print(sign)
         break
 
 print("BL is",int(su%30),"°",sun_longitude_degree,"in")
 for degree_range, sign in degrees_to_signs.items():
+    if(su>360):
+        su=su//2
     if int(su) in degree_range:
         print(sign)
         break
